@@ -72,12 +72,29 @@ export class ProductsComponent {
     const categoriesText = this.categories.map((category: any) => `${category.id} - ${category.name}`).join("\n");
 
     const name = prompt("Enter new product name", product.name);
+
+    if (!name) return;
+
     const price = prompt("Enter new product price", product.price.toString());
+
+    if (!price) return;
+
     const stock = prompt("Enter new product stock", product.stock.toString());
+
+    if (!stock) return;
+
     const category_id = prompt(`Enter new product category_id\n${categoriesText}`, product.category_id.toString());
 
-    if (!name || !price || !category_id)
+    if (!category_id) return;
+
+    const parsePrice = Number(price);
+    const parseStock = Number(stock);
+    const parseCategoryId = Number(category_id);
+
+    if (isNaN(parsePrice) || isNaN(parseStock) || isNaN(parseCategoryId)) {
+      warningAlert("Edit Product Error", "Invalid input");
       return;
+    }
 
     try {
       await this.product.update(product.id, name, Number(price), Number(category_id), Number(stock));
