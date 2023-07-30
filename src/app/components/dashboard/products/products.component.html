@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [style.padding.px]="30">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Reference</th>
+            <th>Price</th>
+            <th>weight</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.reference }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.weight }}</td>
+            <td>{{ getCategoryName(product.category_id) }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-pencil" class="p-button-warning p-button-rounded" style="margin-right: 10px;"
+                    (click)="editProduct(product)"></button>
+                <button pButton type="button" icon="pi pi-trash" class="p-button-danger p-button-rounded" style="margin-right: 10px;"
+                    (click)="deleteProduct(product)"></button>
+
+                <button pButton type="button" icon="pi pi-shopping-cart" class="p-button-success p-button-rounded"
+                    (click)="openSalesDialog(product)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-toast></p-toast>

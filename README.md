@@ -1,27 +1,83 @@
-# CoffeeFrontAngular
+# CoffeApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+## Angular Frontend
 
-## Development server
+This is the frontend of the CoffeApp application, built with Angular. To use it, you need to have the Laravel backend running. The backend repository can be found at: https://github.com/XlHader/CoffeeApp.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+After running the Laravel migrations, you can use the following test user to log in:
 
-## Code scaffolding
+| Email | Password |
+| ----- | -------- |
+|admin@admin.com|admin123|
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation 
 
-## Build
+### 1. Clone the Git Repository
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get started with the installation of the application, you will first need to clone the Git repository. You can do this by running the following command in your terminal:
 
-## Running unit tests
+```bash
+git clone https://github.com/XlHader/CoffeeApp-frontend
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Node.js and Angular CLI.
 
-## Running end-to-end tests
+You will need to have Node.js and npm installed on your machine. You can download Node.js from the following link: https://nodejs.org/en/download/
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Once you have Node.js installed, you can install the dependencies by running the following command in your terminal:
 
-## Further help
+#### 2.1 Install Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You will also need to have the Angular CLI installed on your machine. You can install it by running the following command in your terminal:
+
+```bash
+npm install -g @angular/cli
+```
+
+I recommend the same version of the Angular CLI that I used to develop the application, which is 16.1.0. You can install this version by running the following command in your terminal:
+
+```bash
+npm install -g @angular/cli@16.1.0
+```
+
+#### 2.2 Install Dependencies
+
+On the root directory of the project, run the following command in your terminal:
+
+
+```bash
+npm install
+```
+
+### 3. Configure the API URL
+
+You will need to configure the URL of the API. To do this, open the file `src/environments/environment.ts` and change the value of the `apiUrl` variable to the URL of the API. For example:
+
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8000/api'
+};
+```
+
+### 4. Run the Application
+
+You can run the application by running the following command in your terminal:
+
+```bash
+ng serve
+```
+
+The application will be running on http://localhost:4200
+
+### 5. Build
+
+You can build the application by running the following command in your terminal:
+
+```bash
+ng build
+```
+
+### Usage
+
+Once the application is running, you can interact with the CoffeApp API by using the interface provided by the frontend. 
